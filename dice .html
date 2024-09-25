@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360-Degree Rotating Cube</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            perspective: 1000px; /* Adds depth */
+        }
+
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spin 5s infinite linear; /* Rotates continuously */
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .front  { background-color: red;    transform: rotateY(0deg) translateZ(50px); }
+        .back   { background-color: blue;   transform: rotateY(180deg) translateZ(50px); }
+        .right  { background-color: green;  transform: rotateY(90deg) translateZ(50px); }
+        .left   { background-color: yellow; transform: rotateY(-90deg) translateZ(50px); }
+        .top    { background-color: orange; transform: rotateX(90deg) translateZ(50px); }
+        .bottom { background-color: purple; transform: rotateX(-90deg) translateZ(50px); }
+
+        @keyframes spin {
+            0%   { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="cube-face front">1</div>
+        <div class="cube-face back">2</div>
+        <div class="cube-face right">3</div>
+        <div class="cube-face left">4</div>
+        <div class="cube-face top">5</div>
+        <div class="cube-face bottom">6</div>
+    </div>
+</body>
+</html>
